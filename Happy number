@@ -1,0 +1,26 @@
+def is_happy_number():
+    num = input("")
+    num_len = len(num)
+    
+    if num_len % 2 == 0:   # определили четность/нечетность длины ввода пользователя
+        split_num = list(num)  # разделили строку на список символов
+        digits = []
+        
+        for digit in split_num:  # из списка символов получили список чисел
+            digit = int(digit)
+            digits.append(digit)
+        split_digits1 = digits[: len(digits) // 2]  # разделили список чисел на два равных списка
+        split_digits2 = digits[len(digits) // 2 :]
+        sum1 = 0
+        for num in split_digits1:  #  определяем сумму чисел в каждом списке
+            sum1 += num
+        sum2 = sum(split_digits2)
+        
+        if sum1 == sum2:   # сравниваем суммы
+            print(True)
+        else:
+            print(False)
+    else:
+        print("Введите число, состоящее из четного количества цифр")
+        
+is_happy_number()
